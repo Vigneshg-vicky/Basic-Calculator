@@ -22,7 +22,6 @@ class Calculator {
   chooseOperation(operation) {
     if (this.currentOperand == "") return;
     if (this.previousOperand != "") {
-      // this.previousOperand += operation
       this.compute();
     }
     this.operation = operation;
@@ -58,7 +57,9 @@ class Calculator {
 
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
-    this.previousOperandTextElement.innerText = this.previousOperand;
+    if(this.operation != null){
+      this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
+    }
   }
 }
 
